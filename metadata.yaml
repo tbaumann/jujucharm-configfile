@@ -1,0 +1,16 @@
+name: configfile
+summary: Write a generic config file
+maintainer: Tilman Baumann <tilman@baumann.name>
+description: |
+  Mimimalist charm for writing custom configuration file to disk
+tags:
+  - ubuntu
+subordinate: true
+series:
+  - trusty
+  - xenial
+  - zesty
+requires:
+  host-system:
+    interface: juju-info
+    scope: container

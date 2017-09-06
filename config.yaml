@@ -1,0 +1,13 @@
+options:
+  content:
+    type: string
+    default: ""
+    description: "File content. Consider using YAML HereDoc style quoting with |"
+  filename:
+    type: string
+    default: ""
+    description: "Path to config file"
+  restart_service:
+    type: string
+    default: ""
+    description: "Optional name of a system service to restart when file was changed"

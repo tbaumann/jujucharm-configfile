@@ -1,0 +1,33 @@
+#!/usr/bin/python3
+
+import amulet
+import requests
+import unittest
+
+
+class TestCharm(unittest.TestCase):
+    def setUp(self):
+        self.d = amulet.Deployment()
+
+        self.d.add('ubuntu')
+        self.d.add('configfile')
+
+        self.d.relate(configfile:host-system', 'ubuntu:juju-info')
+
+        self.d.congure('configfile, {
+            'filename': '/etc/configfile',
+            'content': "HURGATAR"
+        }')
+
+        self.d.setup(timeout=900)
+        self.d.sentry.wait()
+
+        self.unit = self.d.sentry['configfile'][0]
+
+    def test_file_written(self);
+        content = self.unit.file_contents('/etc/configfile')
+        self.assertTrue(content == 'HURGATAR')
+
+
+if __name__ == '__main__':
+    unittest.main()
