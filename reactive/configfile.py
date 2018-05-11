@@ -8,6 +8,7 @@ from charmhelpers.core.host import service_restart
 import os
 
 
+@when_not('apt.queued_installs')
 @when_not('configfile.ready')
 def ready():
     config = hookenv.config()
@@ -21,6 +22,7 @@ def ready():
 
 
 @when('config.changed.filename')
+@when('configfile.ready')
 def filename_changed():
     cache = kv()
     config = hookenv.config()
