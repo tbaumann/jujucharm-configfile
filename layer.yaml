@@ -1,2 +1,4 @@
-includes: ['layer:basic']
+includes:
+  - 'layer:basic'
+  - 'layer:apt'
 repo: github.com:tbaumann/charm-logstash-conf-d.git

@@ -11,3 +11,7 @@ options:
     type: string
     default: ""
     description: "Optional name of a system service to restart when file was changed"
+  extra_packages:
+    type: string
+    default: ""
+    description: "Additionall packages to install as dependency for this charm (Are not uninstalled when charm is removed)"
